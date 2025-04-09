@@ -105,7 +105,7 @@ async def profile_create(
     await db.commit()
     await db.refresh(profile_to_create)
 
-    avatar_url =await s3_client.get_file_url(profile_to_create.avatar)
+    avatar_url = await s3_client.get_file_url(profile_to_create.avatar)
 
     return ProfileResponseSchema(
         id=user_id,
